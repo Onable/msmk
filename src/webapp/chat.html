@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>chat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+  <style>
+    html, body {
+      padding: 0;
+    }
+    body{
+      display: flex;
+      flex-direction: column;
+    }
+    #chat {
+      background-color: black;
+      color: white;
+      min-height: 100px;
+    }
+    #chat-input {
+      background-color: darkcyan;
+      color: red;
+      min-height: 10px
+      flex-grow: 1;
+    }
+    #chat-button {
+      background-color: green;
+      color: yellow;
+      min-height: 25px;
+    }
+    #barra {
+      background-color: purple;
+      color: lightblue;
+      display: flex;
+      flex-direction: row;
+    }
+  </style>
+  <script>
+    function getChat() {
+      fetch("endpoint/test-js")
+      .then(function(response) {
+        response.text()
+          .then(function(text) {
+            getOutput().innerHTML = text;
+        });
+      });
+    }
+  </script>
+</head>
+
+<body>
+  hola chat
+  <div id="barra">
+    <div id="chat-button">Envia esa vaina</div>
+    <div id="chat-input" contenteditable="true"></div>
+  </div>
+  <div id="chat"></div>
+</body>
+</html>
